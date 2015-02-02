@@ -1,5 +1,10 @@
 <ul>
   <% @projects.each do |project| %>
-    <li><%= project.name %></li>
+    <% if project.description.present? %>
+      <li><%= project.name %> -
+        <%= project.description %></li>
+    <% else %>
+      <li><%= project.name %></li>
+    <% end %>
   <% end %>
 </ul>>

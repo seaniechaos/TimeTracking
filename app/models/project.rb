@@ -8,4 +8,8 @@ class Project < ActiveRecord::Base
     where("created_at > ?", from).destroy_all
   end
 
+  def self.last_created_projects(n)
+    where("created_at < ?", Time.now).limit(n)
+  end
+
 end
