@@ -11,5 +11,4 @@ class Project < ActiveRecord::Base
   def self.last_created_projects(n)
     where("created_at < ?", Time.now).limit(n)
   end
-
 end
