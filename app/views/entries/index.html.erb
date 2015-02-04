@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
 <h2><%= link_to(@project.name, project_entries_path(@project)) %></h2>
 
 <ul>
