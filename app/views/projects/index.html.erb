@@ -1,10 +1,12 @@
+<h2>Here is a list of current projects.</h2>
+
 <ul>
   <% @projects.each do |project| %>
     <% if project.description.present? %>
-      <li><%= project.name %> -
+      <li><b><%= link_to(project.name, project_entries_path(project)) %></b> -
         <%= project.description %></li>
     <% else %>
-      <li><%= project.name %></li>
+      <li><b><%= link_to(project.name, project_entries_path(project)) %></b></li>
     <% end %>
   <% end %>
 </ul>

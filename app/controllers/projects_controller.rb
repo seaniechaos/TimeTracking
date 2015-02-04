@@ -13,4 +13,24 @@ class ProjectsController < ApplicationController
       render 'no_project_found'
     end
   end
+
+  def new
+    @project = Project.new
+  end
+
+  def create
+    @project = Project.new project_params
+    if @project.save
+      redirect_to action: 'index'
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:name, :description)
+  end
+
 end
