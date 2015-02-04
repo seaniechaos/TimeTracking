@@ -1,5 +1,10 @@
 class Project < ActiveRecord::Base
   has_many :entries
+
+  validates :name, presence: true, uniqueness: true
+  validates :name, length: { maximum: 30 }
+  validates :name, format: { with: /\A[a-zA-Z0-9]+\z/,
+    message: "only allows letters and numbers" }
   
   def self.iron_find (id)
     where(id: id).first
