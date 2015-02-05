@@ -6,20 +6,6 @@
   </ul>
 <% end %>
 
-<%= form_for [@project, @entry] do |f| %>
-  <%= f.label :hours %>
-  <%= f.text_field :hours %>
-  <br>
-  <%= f.label :minutes %>
-  <%= f.text_field :minutes %>
-  <br>
-  <%= f.label :date %>
-  <%= f.date_field :date %>
-  <br>
-  <%= f.label :comments %>
-  <%= f.text_field :comments %>
-  <br>
-  <%= f.submit 'Save' %>
-<% end %>
+<h2>Creating a new entry in <%= @project.name %> project</h2>
 
-<%= link_to("Cancel", project_entries_path(@project)) %>
+<%= render 'form' %>

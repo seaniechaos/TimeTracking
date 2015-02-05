@@ -6,7 +6,10 @@
   </ul>
 <% end %>
 
-<%= form_for [@project] do |f| %>
+<%= form_for @project, :html => { :multipart => true } do |f| %>
+  <%= f.label :logo %> 
+  <%= f.file_field :logo %>
+  <br>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br>

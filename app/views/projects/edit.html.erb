@@ -1,0 +1,14 @@
+<h2>Edit this existing project.</h2>
+
+<%= form_for @project, :html => { :multipart => true } do |f| %>
+  <%= f.label :logo %> 
+  <%= f.file_field :logo %>
+  <br>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.submit 'Save' %>
+<% end %>

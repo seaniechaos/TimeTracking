@@ -27,10 +27,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes project_params
+      redirect_to action: 'index'
+    else
+      render 'new'
+    end
+  end
+
   private
 
   def project_params
-    params.require(:project).permit(:name, :description)
+    params.require(:project).permit(:name, :description, :logo)
   end
 
 end

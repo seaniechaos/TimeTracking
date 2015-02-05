@@ -3,10 +3,10 @@
 <ul>
   <% @projects.each do |project| %>
     <% if project.description.present? %>
-      <li><b><%= link_to(project.name, project_entries_path(project)) %></b> -
+      <li><%= link_to("Edit", edit_project_path(project)) %><%= image_tag project.logo.url(:thumb) %><b><%= link_to(project.name, project_entries_path(project)) %></b> -
         <%= project.description %></li>
     <% else %>
-      <li><b><%= link_to(project.name, project_entries_path(project)) %></b></li>
+      <li><%= link_to("Edit", edit_project_path(project)) %><%= image_tag project.logo.url(:thumb) %><b><%= link_to(project.name, project_entries_path(project)) %></b></li>
     <% end %>
   <% end %>
 </ul>
